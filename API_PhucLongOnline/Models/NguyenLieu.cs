@@ -15,6 +15,7 @@ namespace API_PhucLongOnline.Models
         public int IdNguyenLieu { get; set; }
         public string TenNguyenLieu { get; set; } = null!;
         public string? HinhAnh { get; set; }
+        public double SoLuong { get; set; }
 
         public virtual ICollection<CongThuc> CongThucs { get; set; }
         public virtual ICollection<CtDonDatHang> CtDonDatHangs { get; set; }

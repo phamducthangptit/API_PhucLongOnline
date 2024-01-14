@@ -16,6 +16,7 @@ namespace API_PhucLongOnline.Models
         public int IdSanPhamSize { get; set; }
         public int IdSize { get; set; }
         public int IdSanPham { get; set; }
+        public double GiaHienThoi { get; set; }
 
         public virtual SanPham IdSanPhamNavigation { get; set; } = null!;
         public virtual Size IdSizeNavigation { get; set; } = null!;

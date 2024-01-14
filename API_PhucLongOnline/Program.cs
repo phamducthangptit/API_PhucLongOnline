@@ -12,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PhucLongOnlineContext>();
 builder.Services.AddTransient<IQuanLiRepository, QuanLiRepository>();
+builder.Services.AddTransient<IDatHangRepository, DatHangRepository>();
 
 var app = builder.Build();
 

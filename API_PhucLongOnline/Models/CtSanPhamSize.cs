@@ -8,7 +8,7 @@ namespace API_PhucLongOnline.Models
         public CtSanPhamSize()
         {
             CongThucs = new HashSet<CongThuc>();
-            CtBangGia = new HashSet<CtBangGium>();
+            CtBangGia = new HashSet<CtBangGia>();
             CtDonHangs = new HashSet<CtDonHang>();
             GioHangs = new HashSet<GioHang>();
         }
@@ -20,7 +20,7 @@ namespace API_PhucLongOnline.Models
         public virtual SanPham IdSanPhamNavigation { get; set; } = null!;
         public virtual Size IdSizeNavigation { get; set; } = null!;
         public virtual ICollection<CongThuc> CongThucs { get; set; }
-        public virtual ICollection<CtBangGium> CtBangGia { get; set; }
+        public virtual ICollection<CtBangGia> CtBangGia { get; set; }
         public virtual ICollection<CtDonHang> CtDonHangs { get; set; }
         public virtual ICollection<GioHang> GioHangs { get; set; }
     }

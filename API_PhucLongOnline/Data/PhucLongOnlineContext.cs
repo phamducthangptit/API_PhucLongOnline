@@ -17,9 +17,9 @@ namespace API_PhucLongOnline.Data
         {
         }
 
-        public virtual DbSet<BangGium> BangGia { get; set; } = null!;
+        public virtual DbSet<BangGia> BangGia { get; set; } = null!;
         public virtual DbSet<CongThuc> CongThucs { get; set; } = null!;
-        public virtual DbSet<CtBangGium> CtBangGia { get; set; } = null!;
+        public virtual DbSet<CtBangGia> CtBangGia { get; set; } = null!;
         public virtual DbSet<CtDonDatHang> CtDonDatHangs { get; set; } = null!;
         public virtual DbSet<CtDonHang> CtDonHangs { get; set; } = null!;
         public virtual DbSet<CtNguyenLieu> CtNguyenLieus { get; set; } = null!;
@@ -52,7 +52,7 @@ namespace API_PhucLongOnline.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<BangGium>(entity =>
+            modelBuilder.Entity<BangGia>(entity =>
             {
                 entity.HasKey(e => e.IdBangGia);
 
@@ -85,7 +85,7 @@ namespace API_PhucLongOnline.Data
                     .HasConstraintName("FK_CongThuc_CT_SanPham_Size");
             });
 
-            modelBuilder.Entity<CtBangGium>(entity =>
+            modelBuilder.Entity<CtBangGia>(entity =>
             {
                 entity.HasKey(e => e.IdCtbangGia);
 

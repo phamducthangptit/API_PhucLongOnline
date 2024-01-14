@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace API_PhucLongOnline.Models
 {
-    public partial class BangGium
+    public partial class BangGia
     {
-        public BangGium()
+        public BangGia()
         {
-            CtBangGia = new HashSet<CtBangGium>();
+            CtBangGia = new HashSet<CtBangGia>();
         }
 
         public int IdBangGia { get; set; }
@@ -15,6 +15,6 @@ namespace API_PhucLongOnline.Models
         public DateTime NgayApDung { get; set; }
         public DateTime? NgayKetThuc { get; set; }
 
-        public virtual ICollection<CtBangGium> CtBangGia { get; set; }
+        public virtual ICollection<CtBangGia> CtBangGia { get; set; }
     }
 }

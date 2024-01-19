@@ -39,7 +39,6 @@ namespace API_PhucLongOnline.Data
         public virtual DbSet<SanPham> SanPhams { get; set; } = null!;
         public virtual DbSet<Size> Sizes { get; set; } = null!;
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; } = null!;
-        public virtual DbSet<Voucher> Vouchers { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -309,11 +308,6 @@ namespace API_PhucLongOnline.Data
                     .HasForeignKey(d => d.IdDonHang)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_HoaDon_DonHang");
-
-                entity.HasOne(d => d.IdVoucherNavigation)
-                    .WithMany(p => p.HoaDons)
-                    .HasForeignKey(d => d.IdVoucher)
-                    .HasConstraintName("FK_HoaDon_Voucher");
             });
 
             modelBuilder.Entity<KhachHang>(entity =>
@@ -507,18 +501,6 @@ namespace API_PhucLongOnline.Data
                     .HasConstraintName("FK_TaiKhoan_Quyen");
             });
 
-            modelBuilder.Entity<Voucher>(entity =>
-            {
-                entity.HasKey(e => e.IdVoucher);
-
-                entity.ToTable("Voucher");
-
-                entity.Property(e => e.NgayApDung).HasColumnType("date");
-
-                entity.Property(e => e.NgayHetHan).HasColumnType("date");
-
-                entity.Property(e => e.NoiDung).HasMaxLength(100);
-            });
 
             OnModelCreatingPartial(modelBuilder);
         }

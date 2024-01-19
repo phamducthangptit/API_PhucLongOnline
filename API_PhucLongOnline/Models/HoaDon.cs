@@ -17,7 +17,6 @@ namespace API_PhucLongOnline.Models
         public int IdDonHang { get; set; }
 
         public virtual DonHang IdDonHangNavigation { get; set; } = null!;
-        public virtual Voucher? IdVoucherNavigation { get; set; }
         public virtual ICollection<DonHang> DonHangs { get; set; }
     }
 }

@@ -15,9 +15,10 @@ namespace API_PhucLongOnline.Controllers
         }
 
         [HttpGet("danh-sach-nha-cung-cap")]
-        public IActionResult danhSachNhaCungCap() {
+        public IActionResult DanhSachNhaCungCap() {
             var danhSachNhaCungCap = _quanLiRepository.DanhSachNhaCungCap();
             return Ok(danhSachNhaCungCap);
         }
+
     }
 }

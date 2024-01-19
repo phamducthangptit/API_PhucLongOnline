@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IOUuiFXA6sfzUSGZB/sBcW4L5m5VCD3MQEV6sYAdKZV85PkI2PnjRzga873wEh6IeXT4wz5P6HvTRzb9tkLcXQ==",
+  "dgSpecHash": "1kuR5oooIoFJ4a3S7a9B3wERIcKHq/l5sfYbP6oUnUNWwjYHl7lv2eh8tbW3SWbycxAet1aR9GDy5nSb3pjHCw==",
   "success": true,
-  "projectFilePath": "E:\\HK1_Nam4\\PTTKHTTT\\API\\API_PhucLongOnline\\API_PhucLongOnline\\API_PhucLongOnline.csproj",
+  "projectFilePath": "E:\\HK1_Nam4\\PTTKHTTT\\API\\PhucLongOnline\\API_PhucLongOnline\\API_PhucLongOnline.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.10\\microsoft.aspnetcore.authentication.jwtbearer.6.0.10.nupkg.sha512",

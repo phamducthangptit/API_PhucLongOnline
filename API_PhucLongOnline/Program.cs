@@ -1,6 +1,7 @@
 using API_PhucLongOnline.Data;
 using API_PhucLongOnline.Interface;
 using API_PhucLongOnline.Repository;
+using API1.VnPay.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PhucLongOnlineContext>();
 builder.Services.AddTransient<IQuanLiRepository, QuanLiRepository>();
 builder.Services.AddTransient<IDatHangRepository, DatHangRepository>();
+builder.Services.AddSingleton<IVnPayServices, VnPayService>();
+//services cors
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
+
 
 var app = builder.Build();
 
@@ -24,7 +32,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseRouting();
+app.UseCors("corsapp");
 app.UseAuthorization();
 
 app.MapControllers();

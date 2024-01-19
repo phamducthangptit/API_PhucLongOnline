@@ -2278,11 +2278,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\HK1_Nam4\\PTTKHTTT\\API\\API_PhucLongOnline\\API_PhucLongOnline\\API_PhucLongOnline.csproj",
+      "projectUniqueName": "E:\\HK1_Nam4\\PTTKHTTT\\API\\PhucLongOnline\\API_PhucLongOnline\\API_PhucLongOnline.csproj",
       "projectName": "API_PhucLongOnline",
-      "projectPath": "E:\\HK1_Nam4\\PTTKHTTT\\API\\API_PhucLongOnline\\API_PhucLongOnline\\API_PhucLongOnline.csproj",
+      "projectPath": "E:\\HK1_Nam4\\PTTKHTTT\\API\\PhucLongOnline\\API_PhucLongOnline\\API_PhucLongOnline.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "E:\\HK1_Nam4\\PTTKHTTT\\API\\API_PhucLongOnline\\API_PhucLongOnline\\obj\\",
+      "outputPath": "E:\\HK1_Nam4\\PTTKHTTT\\API\\PhucLongOnline\\API_PhucLongOnline\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",

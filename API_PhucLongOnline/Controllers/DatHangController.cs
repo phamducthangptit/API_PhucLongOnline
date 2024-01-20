@@ -193,5 +193,25 @@ namespace API_PhucLongOnline.Controllers
             var tmp = _datHangRepository.DanhSachSanPhamTrongHoaDon(idDonHang);
             return Ok(tmp);
         }
+        [HttpGet("danh-sach-don-hang")]
+        public IActionResult DanhSachDonHang(string trangThai)
+        {
+            var danhSachDonHang = _datHangRepository.DanhSachDonHang(trangThai);
+            return Ok(danhSachDonHang);
+        }
+
+        [HttpGet("thay-doi-trang-thai-don-hang")]
+        public IActionResult ThayDoiTrangThaiDonHang(int idDonHang, string trangThai)
+        {
+            var check = _datHangRepository.ThayDoiTrangThaiDonHang(idDonHang, trangThai);
+            return Ok(new { Check = check });
+        }
+
+        [HttpGet("check-du-nguyen-lieu")]
+        public IActionResult CheckDuNguyenLieu(int idSanPhamSize, int soLuongMon)
+        {
+            var check = _datHangRepository.CheckNguyenLieu(idSanPhamSize, soLuongMon);
+            return Ok(new { Check = check });
+        }
     }
 }

@@ -17,6 +17,34 @@ namespace API_PhucLongOnline.Repository
             connectString = "Data Source=MSI;Initial Catalog=PhucLongOnline;Integrated Security=True";
         }
 
+        public int CheckNguyenLieu(int idSanPhamSize, int soLuong)
+        {
+            using (SqlConnection connection = new SqlConnection(this.connectString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand("SP_CHECK_NGUYEN_LIEU", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdSanPhamSize", SqlDbType.Int));
+                    command.Parameters["@IdSanPhamSize"].Value = idSanPhamSize;
+                    command.Parameters.Add(new SqlParameter("@SoLuongMon", SqlDbType.Int));
+                    command.Parameters["@SoLuongMon"].Value = soLuong;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        int check = 0;
+                        while(reader.Read())
+                        {
+                            check = Convert.ToInt32(reader["DuNguyenLieu"]);
+                        }
+                        
+                        return check;
+                    }
+                }
+            }
+        }
+
         public int CheckSanPhamTonTaiTrongGH(string tenDangNhap, int idSanPham, int idSize)
         {
             using (SqlConnection connection = new SqlConnection(this.connectString))
@@ -45,6 +73,38 @@ namespace API_PhucLongOnline.Repository
                 }
             }
             return 0;
+        }
+
+        public IEnumerable<DonHangDTO> DanhSachDonHang(string trangThai)
+        {
+            List<DonHangDTO> danhSachDonHang = new List<DonHangDTO>();
+            using (SqlConnection connection = new SqlConnection(this.connectString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand("SP_GET_DANH_SACH_DON_HANG_THEO_TRANG_THAI", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@TrangThai", SqlDbType.NVarChar));
+                    command.Parameters["@TrangThai"].Value = trangThai;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            DonHangDTO donHang = new DonHangDTO
+                            {
+                                IdDonHang = Convert.ToInt32(reader["IdDonHang"]),
+                                NgayLap = Convert.ToDateTime(reader["NgayLap"]),
+                                TrangThaiDonHang = reader["TrangThaiDonHang"].ToString()
+                            };
+
+                            danhSachDonHang.Add(donHang);
+                        }
+                    }
+                }
+            }
+            return danhSachDonHang;
         }
 
         public IEnumerable<HoaDonDTO> DanhSachHoaDon(string tenDangNhap)
@@ -552,6 +612,28 @@ namespace API_PhucLongOnline.Repository
             return 1;
         }
 
+        public int ThayDoiTrangThaiDonHang(int IdDonHang, string trangThai)
+        {
+            using (SqlConnection connection = new SqlConnection(this.connectString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand("SP_THAY_DOI_TRANG_THAI_DON_HANG", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdDonHang", SqlDbType.Int));
+                    command.Parameters["@IdDonHang"].Value = IdDonHang;
+                    command.Parameters.Add(new SqlParameter("@TrangThai", SqlDbType.NVarChar));
+                    command.Parameters["@TrangThai"].Value = trangThai;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        return 1;
+                    }
+                }
+            }
+        }
+
         public int ThemSanPhamMoiVaoGH(string tenDangNhap, int idSanPham, int idSize, int soLuong)
         {
             using (SqlConnection connection = new SqlConnection(this.connectString))
@@ -666,7 +748,6 @@ namespace API_PhucLongOnline.Repository
             using (SqlConnection connection = new SqlConnection(this.connectString))
             {
                 connection.Open();
-                // lập hóa đơn trước
                 using (SqlCommand command = new SqlCommand("SP_UPDATE_HOA_DON_CUA_DON_HANG", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;

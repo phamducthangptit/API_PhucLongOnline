@@ -50,7 +50,6 @@ namespace API1.VnPay.Controller
                 
                 _datHangRepository.ThaoTacHoaDonThanhToanOnline(tenDangNhap, 0);
                 return Redirect("http://localhost:8080/lich-su-don-hang");
-                /*return Ok(new { code = this.tenDangNhap });*/
             }
             _datHangRepository.ThaoTacHoaDonThanhToanOnline(tenDangNhap, 1);
             return Redirect("http://localhost:8080/don-hang");

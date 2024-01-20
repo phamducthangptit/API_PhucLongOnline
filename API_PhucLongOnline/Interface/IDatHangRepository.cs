@@ -52,5 +52,10 @@ namespace API_PhucLongOnline.Interface
         IEnumerable<HoaDonDTO> DanhSachHoaDon(string tenDangNhap);
 
         IEnumerable<SanPhamTrongHoaDonDTO> DanhSachSanPhamTrongHoaDon(int IdDonHang);
+
+        IEnumerable<DonHangDTO> DanhSachDonHang(string trangThai);
+        int ThayDoiTrangThaiDonHang(int IdDonHang, string trangThai);
+
+        int CheckNguyenLieu(int idSanPhamSize, int soLuong);
     }
 }
